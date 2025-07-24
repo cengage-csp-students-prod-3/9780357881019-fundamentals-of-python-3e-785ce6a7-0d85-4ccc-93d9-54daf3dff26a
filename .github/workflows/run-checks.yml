@@ -142,7 +142,7 @@ jobs:
           git config user.email "Auto-grader"
           git add ./*.txt
           # Check if there are any changes
-          git diff --staged --quiet || { 
+          git diff --staged --quiet && { 
             echo "No changes to commit. Moving on."
             exit 0
           }
@@ -154,4 +154,3 @@ jobs:
           git fetch
           git merge origin/${{ github.event.inputs.BRANCH }}
           git push
-
