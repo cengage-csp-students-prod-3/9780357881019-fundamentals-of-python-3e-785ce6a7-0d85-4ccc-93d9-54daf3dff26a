@@ -1,19 +1,21 @@
 # encrypt.py
 
 def char_to_encrypted_bits(char):
-    # Step 1: ASCII value + 1
-    ascii_plus_one = ord(char) + 1
+    # Step 1: ASCII + 1
+    ascii_plus_one = ord(char) + 1  # 👈 THIS WAS MISSING EARLIER
 
-    # Step 2: Shift left by 1
-    shifted = ascii_plus_one << 1
+    # Step 2: Convert to 8-bit binary
+    binary_str = format(ascii_plus_one, '08b')
 
-    # Step 3: Convert to binary string, remove "0b"
-    return bin(shifted)[2:]
+    # Step 3: Shift left by one bit (as string)
+    shifted = binary_str[1:] + '0'
+
+    return shifted
 
 def main():
     message = input("Enter a message: ")
-    encrypted_bits = [char_to_encrypted_bits(c) for c in message]
-    print(' '.join(encrypted_bits))
+    encrypted = [char_to_encrypted_bits(c) for c in message]
+    print(' '.join(encrypted))
 
 if __name__ == "__main__":
     main()
