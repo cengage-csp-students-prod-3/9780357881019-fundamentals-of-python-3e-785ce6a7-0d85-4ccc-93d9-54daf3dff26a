@@ -4,25 +4,25 @@ Check: 1
 Test: Calling getWords with articles.txt return correct tuple.
 Reason: Expected ('A', 'THE')
 Error : AssertionError - Assertion failed: Expected ('A', 'THE')
-Timestamp: 2025-07-27 22:44:04.666620
+Timestamp: 2025-07-27 23:02:09.691212
 
 Status: FAILED!
 Check: 2
 Test: Calling getWords with nouns.txt return correct tuple.
 Reason: Expected ('BOY', 'GIRL', 'BAT', 'BALL')
 Error : AssertionError - Assertion failed: Expected ('BOY', 'GIRL', 'BAT', 'BALL')
-Timestamp: 2025-07-27 22:44:04.666787
+Timestamp: 2025-07-27 23:02:09.691379
 
 Status: FAILED!
 Check: 3
 Test: Calling getWords with verbs.txt return correct tuple.
 Reason: Expected ('HIT', 'SAW', 'LIKED')
 Error : AssertionError - Assertion failed: Expected ('HIT', 'SAW', 'LIKED')
-Timestamp: 2025-07-27 22:44:04.666898
+Timestamp: 2025-07-27 23:02:09.691507
 
 Status: FAILED!
 Check: 4
 Test: Calling getWords with nouns.txt return correct tuple.
 Reason: Expected ('WITH', 'BY')
 Error : AssertionError - Assertion failed: Expected ('WITH', 'BY')
-Timestamp: 2025-07-27 22:44:04.666997
+Timestamp: 2025-07-27 23:02:09.691614
