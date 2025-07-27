@@ -1,19 +1,20 @@
-# octal_decimal_converter.py
+# decimaltooctal.py
 
-import sys
+def decimal_to_octal(decimal_number):
+    if decimal_number == 0:
+        return "0"
+    octal_number = ""
+    while decimal_number > 0:
+        remainder = decimal_number % 8
+        octal_number = str(remainder) + octal_number
+        decimal_number //= 8
+    return octal_number
 
-# Read the input from stdin
-user_input = input().strip()
-
-# Try to convert the input assuming it's an octal number
-# and output the decimal equivalent.
+# Main program
 try:
-    print(int(user_input, 8))
+    decimal_input = int(input("Enter a decimal integer: "))
+    octal_result = decimal_to_octal(decimal_input)
+    print(f"The octal representation is {octal_result}")
 except ValueError:
-    # If it's not a valid octal number, assume it's a decimal
-    # and output the octal equivalent.
-    try:
-        decimal_number = int(user_input)
-        print(format(decimal_number, 'o'))
-    except ValueError:
-        print("Invalid input")
+    print("Invalid input. Please enter a valid integer.")
+
