@@ -1,44 +1,43 @@
-"""
-Program: generator.py
-Author: Ken
-Generates and displays sentences using a simple grammar
-and vocabulary.  Words are chosen at random.
-"""
+# generator.py
 
 import random
 
-articles = ("A", "THE")
-
-nouns = ("BOY", "GIRL", "BAT", "BALL")
-
-verbs = ("HIT", "SAW", "LIKED")
-
-prepositions = ("WITH", "BY")
+def getWords(filename):
+    """Reads words from a given file and returns them as a tuple."""
+    words = []
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                word = line.strip().upper()  # Optional: convert to uppercase
+                if word:
+                    words.append(word)
+    except FileNotFoundError:
+        print(f"Error: {filename} not found.")
+        exit()
+    return tuple(words)
 
 def sentence():
-    """Builds and returns a sentence."""
-    return nounPhrase() + " " + verbPhrase()
+    """Generates a sentence using the grammar structure."""
+    return f"{random.choice(articles)} {random.choice(nouns)} " \
+           f"{random.choice(verbs)} {random.choice(articles)} " \
+           f"{random.choice(nouns)} {random.choice(prepositions)} " \
+           f"{random.choice(articles)} {random.choice(nouns)}"
 
-def nounPhrase():
-    """Builds and returns a noun phrase."""
-    return random.choice(articles) + " " + random.choice(nouns)
+# Load words from files
+nouns = getWords("nouns.txt")
+verbs = getWords("verbs.txt")
+articles = getWords("articles.txt")
+prepositions = getWords("prepositions.txt")
 
-def verbPhrase():
-    """Builds and returns a verb phrase."""
-    return random.choice(verbs) + " " + nounPhrase() + " " + \
-           prepositionalPhrase()
-
-def prepositionalPhrase():
-    """Builds and returns a prepositional phrase."""
-    return random.choice(prepositions) + " " + nounPhrase()
-
+# Main program
 def main():
-    """Allows the user to input the number of sentences
-    to generate."""
-    number = int(input("Enter the number of sentences: "))
-    for count in range(number):
-        print(sentence())
+    try:
+        count = int(input("Enter the number of sentences: "))
+        print()
+        for _ in range(count):
+            print(sentence())
+    except ValueError:
+        print("Please enter a valid number.")
 
-# The entry point for program execution
 if __name__ == "__main__":
     main()
