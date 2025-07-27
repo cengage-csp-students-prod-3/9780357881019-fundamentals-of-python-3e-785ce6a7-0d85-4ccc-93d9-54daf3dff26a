@@ -1,32 +1,19 @@
 # octal_decimal_converter.py
 
-def decimal_to_octal(decimal_number):
-    return format(decimal_number, 'o')  # built-in conversion
+import sys
 
-def octal_to_decimal(octal_string):
-    return int(octal_string, 8)  # interpret input as base 8
+# Read the input from stdin
+user_input = input().strip()
 
-def main():
-    print("Octal ↔ Decimal Converter")
-    print("1. Decimal to Octal")
-    print("2. Octal to Decimal")
-
-    choice = input("Choose an option (1 or 2): ")
-
-    if choice == "1":
-        try:
-            decimal_input = int(input("Enter a decimal integer: "))
-            print(decimal_to_octal(decimal_input))
-        except ValueError:
-            print("Invalid input. Please enter a valid decimal number.")
-    elif choice == "2":
-        try:
-            octal_input = input("Enter a string of octal digits: ")
-            print(octal_to_decimal(octal_input))
-        except ValueError:
-            print("Invalid input. Please enter valid octal digits (0-7).")
-    else:
-        print("Invalid option. Please choose 1 or 2.")
-
-if __name__ == "__main__":
-    main()
+# Try to convert the input assuming it's an octal number
+# and output the decimal equivalent.
+try:
+    print(int(user_input, 8))
+except ValueError:
+    # If it's not a valid octal number, assume it's a decimal
+    # and output the octal equivalent.
+    try:
+        decimal_number = int(user_input)
+        print(format(decimal_number, 'o'))
+    except ValueError:
+        print("Invalid input")
