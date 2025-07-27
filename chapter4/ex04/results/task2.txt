@@ -9,7 +9,7 @@ Octal ↔ Decimal Converter
 Choose an option (1 or 2): Invalid option. Please choose 1 or 2.
 .
 Error : AssertionError - Unable to find a number close enough to 24 (+/-0.00) in the program's output.
-Timestamp: 2025-07-27 22:05:48.509280
+Timestamp: 2025-07-27 22:08:33.071657
 
 Status: FAILED!
 Check: 2
@@ -21,4 +21,4 @@ Octal ↔ Decimal Converter
 Choose an option (1 or 2): Invalid option. Please choose 1 or 2.
 .
 Error : AssertionError - Unable to find a number close enough to 310 (+/-0.00) in the program's output.
-Timestamp: 2025-07-27 22:05:48.527982
+Timestamp: 2025-07-27 22:08:33.089079
