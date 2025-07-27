@@ -1,18 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: Program outputs 24 when user inputs 20
-Reason: Unable to find '['24']' in the program's output.
-16
-.
-Error : AssertionError - Unable to find a number close enough to 24 (+/-0.00) in the program's output.
-Timestamp: 2025-07-27 22:10:41.499310
+Reason: 24 was found in the program's output.None
+Timestamp: 2025-07-27 22:15:06.357264
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Program outputs 310 when user inputs 200
-Reason: Unable to find '['310']' in the program's output.
-128
-.
-Error : AssertionError - Unable to find a number close enough to 310 (+/-0.00) in the program's output.
-Timestamp: 2025-07-27 22:10:41.515988
+Reason: 310 was found in the program's output.None
+Timestamp: 2025-07-27 22:15:06.374058
