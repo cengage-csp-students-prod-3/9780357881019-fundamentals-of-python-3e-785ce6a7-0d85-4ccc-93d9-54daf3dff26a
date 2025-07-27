@@ -1,14 +1,14 @@
 # encrypt.py
 
 def char_to_encrypted_bits(char):
-    # Step 1: ASCII + 1
-    ascii_plus_one = ord(char) + 1  # 👈 THIS WAS MISSING EARLIER
+    # Step 1: Get ASCII + 1
+    ascii_plus_one = ord(char) + 1
 
-    # Step 2: Convert to 8-bit binary
-    binary_str = format(ascii_plus_one, '08b')
+    # Step 2: Convert to binary (remove '0b')
+    binary = bin(ascii_plus_one)[2:]
 
-    # Step 3: Shift left by one bit (as string)
-    shifted = binary_str[1:] + '0'
+    # Step 3: Shift bits left by 1 (string shift)
+    shifted = binary[1:] + '0'
 
     return shifted
 
@@ -19,6 +19,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
