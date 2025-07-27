@@ -1,0 +1,24 @@
+
+Status: FAILED!
+Check: 1
+Test: Program outputs 24 when user inputs 20
+Reason: Unable to find '['24']' in the program's output.
+Octal ↔ Decimal Converter
+1. Decimal to Octal
+2. Octal to Decimal
+Choose an option (1 or 2): Invalid option. Please choose 1 or 2.
+.
+Error : AssertionError - Unable to find a number close enough to 24 (+/-0.00) in the program's output.
+Timestamp: 2025-07-27 22:05:48.509280
+
+Status: FAILED!
+Check: 2
+Test: Program outputs 310 when user inputs 200
+Reason: Unable to find '['310']' in the program's output.
+Octal ↔ Decimal Converter
+1. Decimal to Octal
+2. Octal to Decimal
+Choose an option (1 or 2): Invalid option. Please choose 1 or 2.
+.
+Error : AssertionError - Unable to find a number close enough to 310 (+/-0.00) in the program's output.
+Timestamp: 2025-07-27 22:05:48.527982
