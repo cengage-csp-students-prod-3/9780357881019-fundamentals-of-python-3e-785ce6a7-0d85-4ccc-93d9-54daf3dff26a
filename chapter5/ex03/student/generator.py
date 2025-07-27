@@ -3,17 +3,9 @@
 import random
 
 def getWords(filename):
-    """Reads words from a given file and returns them as a tuple."""
-    words = []
-    try:
-        with open(filename, 'r') as file:
-            for line in file:
-                word = line.strip().upper()  # Optional: convert to uppercase
-                if word:
-                    words.append(word)
-    except FileNotFoundError:
-        print(f"Error: {filename} not found.")
-        exit()
+    """Reads words from a given file and returns them as an uppercase tuple in file order."""
+    with open(filename, 'r') as file:
+        words = [line.strip().upper() for line in file if line.strip()]
     return tuple(words)
 
 def sentence():
