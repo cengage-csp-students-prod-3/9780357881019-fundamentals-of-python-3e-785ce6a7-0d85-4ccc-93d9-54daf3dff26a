@@ -1,28 +1,27 @@
 
 Status: FAILED!
 Check: 1
-Test: Method newton must exist
-Reason: Method newton not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 21:54:38.324876
+Test: The `newton` method returns the square root of 2.
+Reason: Expected 1.4142135623746899
+Error : AssertionError - Assertion failed: Expected 1.4142135623746899
+Timestamp: 2025-07-31 22:01:42.398200
 
 Status: FAILED!
 Check: 2
-Test: Method newton must exist
-Reason: Method newton not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 21:54:38.325010
+Test: The `newton` method returns the square root of 4.
+Reason: Expected 2.0000000929222947
+Error : AssertionError - Assertion failed: Expected 2.0000000929222947
+Timestamp: 2025-07-31 22:01:42.398337
 
 Status: FAILED!
 Check: 3
-Test: Method newton must exist
-Reason: Method newton not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 21:54:38.325094
+Test: The `newton` method returns the square root of 9.
+Reason: Expected  3.000000001396984
+Error : AssertionError - Assertion failed: Expected  3.000000001396984
+Timestamp: 2025-07-31 22:01:42.398427
 
-Status: FAILED!
+Status: PASSED!
 Check: 4
-Test: Method newton must exist
-Reason: Method newton not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 21:54:38.325166
+Test: The `newton` function uses recursive patterns.
+Reason: None
+Timestamp: 2025-07-31 22:01:42.398615
