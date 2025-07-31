@@ -1,13 +1,12 @@
-def newton(n, estimate=None, tolerance=1e-7):
+def newton(n, estimate=None, count=0, max_iterations=6):
     if estimate is None:
         estimate = n / 2 if n >= 2 else 1
 
-    better_estimate = 0.5 * (estimate + n / estimate)
+    if count >= max_iterations:
+        return estimate
 
-    if abs(better_estimate - estimate) < tolerance:
-        return better_estimate
-    else:
-        return newton(n, better_estimate, tolerance)
+    better_estimate = 0.5 * (estimate + n / estimate)
+    return newton(n, better_estimate, count + 1, max_iterations)
 
 def main():
     while True:
@@ -30,3 +29,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
