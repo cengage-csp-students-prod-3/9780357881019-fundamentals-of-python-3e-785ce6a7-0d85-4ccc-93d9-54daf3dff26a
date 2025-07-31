@@ -1,18 +1,40 @@
 
 Status: FAILED!
-Check: 1
-Test: Program outputs correct values when user inputs 'hello'
-Reason: Unable to find '['1010011 1001101 1011011 1011011 1100001']' in the program's output.
-Enter a message: 1010010 1001100 1011010 1011010 1100000
-.
-Error : AssertionError - Unable to find 1010011 1001101 1011011 1011011 1100001 in the program's output.
-Timestamp: 2025-07-27 22:36:20.866947
+Reason: Unable to run encrypt.py
+Error: Traceback (most recent call last):
+  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/python/chapter4/ex06/encrypt.py", line 21, in <module>
+    message = input("Enter a message: ")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+
+Timestamp: 2025-07-31 08:49:56.290391
 
 Status: FAILED!
-Check: 2
-Test: Program outputs correct values when user inputs 'goodbye'
-Reason: Unable to find '['1010001 1100001 1100001 1001011 1000111 1110101 1001101']' in the program's output.
-Enter a message: 1010000 1100000 1100000 1001010 1000110 1110100 1001100
-.
-Error : AssertionError - Unable to find 1010001 1100001 1100001 1001011 1000111 1110101 1001101 in the program's output.
-Timestamp: 2025-07-27 22:36:20.883747
+Reason: Unable to run encrypt.py
+Error: Traceback (most recent call last):
+  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/python/chapter4/ex06/encrypt.py", line 21, in <module>
+    message = input("Enter a message: ")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+
+Timestamp: 2025-07-31 08:49:56.290573
+
+Status: FAILED!
+Reason: Unable to run encrypt.py
+Error: Traceback (most recent call last):
+  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/python/chapter4/ex06/encrypt.py", line 21, in <module>
+    message = input("Enter a message: ")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+
+Timestamp: 2025-07-31 08:49:56.419037
+
+Status: FAILED!
+Reason: Unable to run encrypt.py
+Error: Traceback (most recent call last):
+  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/9780357881019-fundamentals-of-python-3e-785ce6a7-0d85-4ccc-93d9-54daf3dff26a/python/chapter4/ex06/encrypt.py", line 21, in <module>
+    message = input("Enter a message: ")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+
+Timestamp: 2025-07-31 08:49:56.419124
