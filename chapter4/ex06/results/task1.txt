@@ -3,16 +3,16 @@ Status: FAILED!
 Check: 1
 Test: Program outputs correct values when user inputs 'hello'
 Reason: Unable to find '['1010011 1001101 1011011 1011011 1100001']' in the program's output.
-Enter a message: 11010010 11001100 11011010 11011010 11100000
+Enter a message: 1101001 1100110 1101101 1101101 1110000
 .
 Error : AssertionError - Unable to find 1010011 1001101 1011011 1011011 1100001 in the program's output.
-Timestamp: 2025-07-31 08:59:48.139493
+Timestamp: 2025-07-31 09:01:21.316050
 
 Status: FAILED!
 Check: 2
 Test: Program outputs correct values when user inputs 'goodbye'
 Reason: Unable to find '['1010001 1100001 1100001 1001011 1000111 1110101 1001101']' in the program's output.
-Enter a message: 11010000 11100000 11100000 11001010 11000110 11110100 11001100
+Enter a message: 1101000 1110000 1110000 1100101 1100011 1111010 1100110
 .
 Error : AssertionError - Unable to find 1010001 1100001 1100001 1001011 1000111 1110101 1001101 in the program's output.
-Timestamp: 2025-07-31 08:59:48.157269
+Timestamp: 2025-07-31 09:01:21.333873
