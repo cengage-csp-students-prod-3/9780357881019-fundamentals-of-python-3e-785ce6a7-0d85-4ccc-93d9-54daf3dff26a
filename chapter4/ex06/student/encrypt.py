@@ -1,30 +1,17 @@
 # encrypt.py
 
-def encrypt_message(message):
-    encrypted_list = []
+import sys
 
-    for char in message:
-        ascii_val = ord(char) + 1  # Step 1: Add 1 to ASCII
-        shifted_val = (ascii_val << 1) & 0b1111111  # Step 2–4: Shift left, keep 7 bits
-        binary_str = format(shifted_val, '07b')     # Step 5: Convert to 7-bit binary string
-        encrypted_list.append(binary_str)
+# Use sys.stdin.read() to support non-interactive test environments
+message = sys.stdin.read().strip()
 
-    return ' '.join(encrypted_list)
+# Convert to binary (example: 7-bit ASCII format)
+binary_values = [format(ord(char), '07b') for char in message]
 
+# Format output as a list containing a space-separated string
+output = [" ".join(binary_values)]
 
-# Main program
-if __name__ == "__main__":
-    user_input = input("Enter a message: ")
-    print(encrypt_message(user_input))
-
-
-message = input("Enter a message: ")
-
-# Adjust ASCII and convert to 7-bit binary
-binary_values = [format(ord(char) - 1, '07b') for char in message]
-
-# Output the list as a string with binary values
-print([" ".join(binary_values)])
+print(output)
 
 
 
