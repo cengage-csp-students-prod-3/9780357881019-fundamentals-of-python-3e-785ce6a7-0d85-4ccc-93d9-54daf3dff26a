@@ -1,20 +1,35 @@
 
 Status: FAILED!
 Check: 1
+Test: Method viewFile must exist
+Reason: Method viewFile not found!
+Error : AssertionError - 
+Timestamp: 2025-07-31 22:37:28.909048
+
+Status: FAILED!
+Check: 1
 Test: 
 Reason: 
-Error : Exception - File text1.txt not found in the current directory.
-Timestamp: 2025-07-31 22:34:33.987562
+Error : AssertionError - Failed
+Timestamp: 2025-07-31 22:37:28.909130
+
+Status: FAILED!
+Check: 2
+Test: Method viewFile must exist
+Reason: Method viewFile not found!
+Error : AssertionError - 
+Timestamp: 2025-07-31 22:37:28.909361
 
 Status: FAILED!
 Check: 2
 Test: 
 Reason: 
-Error : Exception - File text2.txt not found in the current directory.
-Timestamp: 2025-07-31 22:34:33.987883
+Error : AssertionError - Failed
+Timestamp: 2025-07-31 22:37:28.909400
 
-Status: PASSED!
+Status: FAILED!
 Check: 3
-Test: The filesys.py program does not contain any hardcoded strings.
-Reason: None
-Timestamp: 2025-07-31 22:34:33.988178
+Test: Method viewFile must exist
+Reason: Method viewFile not found!
+Error : AssertionError - 
+Timestamp: 2025-07-31 22:37:28.909481
