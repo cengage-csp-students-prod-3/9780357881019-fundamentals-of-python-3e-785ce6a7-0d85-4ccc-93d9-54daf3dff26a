@@ -77,9 +77,7 @@ def main():
             break
         words = sentence.upper().split()
         if isSentence(words):
-            print("Ok, grammatically correct")
+            print("[correct]")
         else:
-            print("Not grammatically correct")
+            print("[incorrect]")
 
-if __name__ == "__main__":
-    main()
