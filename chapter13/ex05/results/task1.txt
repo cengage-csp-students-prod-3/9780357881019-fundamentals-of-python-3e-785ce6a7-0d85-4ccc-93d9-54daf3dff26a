@@ -1,0 +1,24 @@
+
+Status: PASSED!
+Check: 1
+Test: The `selectionSort` method sorts an list [5, 3, 1, 2, 4] of integers in ascending order.
+Reason: None
+Timestamp: 2025-07-31 22:54:16.973857
+
+Status: PASSED!
+Check: 2
+Test: The `selectionSort` method sorts an list [5, 3, 1, 2, 4] of integers in descending order.
+Reason: None
+Timestamp: 2025-07-31 22:54:16.973999
+
+Status: PASSED!
+Check: 3
+Test: The `selectionSort` method sorts an list [5, 12, 3, 8, 19, 7, 2, 14] of integers in ascending order.
+Reason: None
+Timestamp: 2025-07-31 22:54:16.974088
+
+Status: PASSED!
+Check: 4
+Test: The `selectionSort` method sorts an list [5, 12, 3, 8, 19, 7, 2, 14] of integers in descending order.
+Reason: None
+Timestamp: 2025-07-31 22:54:16.974163
