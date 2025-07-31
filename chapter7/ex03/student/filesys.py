@@ -4,11 +4,11 @@ def viewFile():
     cwd = os.getcwd()
     print(f"Files in {cwd}:")
     files = [f for f in os.listdir(cwd) if os.path.isfile(os.path.join(cwd, f))]
-    for f in files:
-        print(f)
     if not files:
         print("No files found in the current directory.")
         return
+    for f in files:
+        print(f)
 
     filename = input("Enter a file name from these names: ")
 
@@ -22,5 +22,4 @@ def viewFile():
             contents = file.read()
             print(contents)
     except Exception as e:
-        print(f"Error opening file: {e}")
-#
+        print(f"Error opening file:
