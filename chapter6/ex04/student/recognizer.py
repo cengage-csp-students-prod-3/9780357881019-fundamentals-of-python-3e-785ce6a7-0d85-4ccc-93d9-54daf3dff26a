@@ -9,22 +9,19 @@ conjunctions = {"AND", "BUT", "OR"}   # New: conjunctions
 
 def isSentence(words):
     """Checks if a sentence is grammatically correct."""
-    # Try parsing the first clause
     remaining = parseClause(words)
     if remaining is None:
         return False
 
-    # If there's no conjunction, the sentence is valid
     if not remaining:
         return True
 
-    # If next word is a conjunction, parse the second clause
     if remaining[0] in conjunctions:
         remaining = parseClause(remaining[1:])
         return remaining == []
 
-    # If leftover words without a conjunction: invalid
     return False
+
 
 
 def parseClause(words):
@@ -33,36 +30,37 @@ def parseClause(words):
     if remaining is None:
         return None
     remaining = parseVerbPhrase(remaining)
+    if remaining is None:
+        return None
     return remaining
 
 
-def parseNounPhrase(words):
+ddef parseNounPhrase(words):
     """Parses a noun phrase: ARTICLE [ADJECTIVE] NOUN"""
     if len(words) < 2 or words[0] not in articles:
         return None
 
     if words[1] in adjectives:
-        # ARTICLE + ADJECTIVE + NOUN
         if len(words) < 3 or words[2] not in nouns:
             return None
         return words[3:]
     elif words[1] in nouns:
-        # ARTICLE + NOUN
         return words[2:]
     else:
         return None
 
 
+
 def parseVerbPhrase(words):
     """Parses a verb phrase: VERB + NOUN_PHRASE [+ PREPOSITIONAL_PHRASE (optional)]"""
-    if len(words) < 2 or words[0] not in verbs:
+    if not words or words[0] not in verbs:
         return None
 
     remaining = parseNounPhrase(words[1:])
     if remaining is None:
         return None
 
-    # Optionally parse prepositional phrase
+    # Optional prepositional phrase
     if remaining and remaining[0] in prepositions:
         remaining = parsePrepositionalPhrase(remaining)
     return remaining
