@@ -1,0 +1,20 @@
+
+Status: FAILED!
+Check: 1
+Test: 
+Reason: 
+Error : Exception - File text1.txt not found in the current directory.
+Timestamp: 2025-07-31 22:26:06.714955
+
+Status: FAILED!
+Check: 2
+Test: 
+Reason: 
+Error : Exception - File text2.txt not found in the current directory.
+Timestamp: 2025-07-31 22:26:06.715275
+
+Status: PASSED!
+Check: 3
+Test: The filesys.py program does not contain any hardcoded strings.
+Reason: None
+Timestamp: 2025-07-31 22:26:06.715574
