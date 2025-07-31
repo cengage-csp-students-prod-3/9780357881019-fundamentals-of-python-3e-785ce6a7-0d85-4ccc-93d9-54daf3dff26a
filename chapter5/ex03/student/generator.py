@@ -3,9 +3,13 @@
 import random
 
 def getWords(filename):
-    """Reads words from a file, strips whitespace, uppercases them, and returns a tuple."""
     with open(filename, 'r') as file:
-        return tuple(line.strip().upper() for line in file if line.strip())
+        words = []
+        for line in file:
+            word = line.strip()
+            if word != '':
+                words.append(word.upper())
+        return tuple(words)
 
 def generate_sentence():
     """Generates a sentence following the structure:
