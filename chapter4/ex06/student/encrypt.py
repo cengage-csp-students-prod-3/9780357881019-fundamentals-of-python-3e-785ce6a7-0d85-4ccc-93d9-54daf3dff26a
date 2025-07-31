@@ -1,20 +1,30 @@
-# Decrypt Caesar cipher for printable ASCII characters (32–126)
+# encrypt.py
 
-coded_text = input("Enter the coded text: ")
-distance = int(input("Enter the distance value: "))
+def encrypt_message(message):
+    encrypted_bits = []
 
-decrypted = ""
+    for char in message:
+        # Step 1: Get ASCII value and add 1
+        ascii_val = ord(char) + 1
 
-for ch in coded_text:
-    ascii_val = ord(ch)
-    if 32 <= ascii_val <= 126:
-        shifted = (ascii_val - 32 - distance) % 95 + 32
-        decrypted += chr(shifted)
-    else:
-        decrypted += ch  # leave non-printable characters as-is
+        # Step 2: Convert to 8-bit binary string
+        binary_str = format(ascii_val, '08b')
 
-print(decrypted)
+        # Step 3: Left shift the bit string by 1
+        # Drop the first bit and add a '0' at the end
+        shifted = binary_str[1:] + '0'
 
+        # Step 4: Add to the encrypted list
+        encrypted_bits.append(shifted)
+
+    # Step 5: Join all with spaces
+    return ' '.join(encrypted_bits)
+
+# Main program
+if __name__ == "__main__":
+    message = input("Enter a message: ")
+    encrypted = encrypt_message(message)
+    print(encrypted)
 
 
 
