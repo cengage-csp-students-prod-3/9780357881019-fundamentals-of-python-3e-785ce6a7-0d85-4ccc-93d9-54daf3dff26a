@@ -13,12 +13,14 @@ def viewFile():
         print("Error: File not found in current directory.")
         return
 
+    filepath = os.path.join(cwd, filename)  # Use full path here
     try:
-        with open(filename, 'r', encoding='utf-8') as file:
+        with open(filepath, 'r', encoding='utf-8') as file:
             contents = file.read()
             print(contents)
     except Exception as e:
         print(f"Error opening file: {e}")
+
 def main():
     while True:
         print("""
