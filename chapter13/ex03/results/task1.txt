@@ -1,34 +1,30 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
-Test: Function expo must exist
-Reason: Function expo not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 23:41:55.654404
+Test: The `expo(2,3)` function should return the correct result.
+Reason: None
+Timestamp: 2025-07-31 23:43:19.071256
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
-Test: Function expo must exist
-Reason: Function expo not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 23:41:55.654538
+Test: The `expo(5,0)` function should return the correct result.
+Reason: None
+Timestamp: 2025-07-31 23:43:19.071382
 
-Status: FAILED!
+Status: PASSED!
 Check: 3
-Test: Function expo must exist
-Reason: Function expo not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 23:41:55.654626
+Test: The `expo(0,5)` function should return the correct result.
+Reason: None
+Timestamp: 2025-07-31 23:43:19.071461
 
-Status: FAILED!
+Status: PASSED!
 Check: 4
-Test: Function expo must exist
-Reason: Function expo not found!
-Error : AssertionError - 
-Timestamp: 2025-07-31 23:41:55.654699
+Test: The `expo(0,0)` function should return the correct result.
+Reason: None
+Timestamp: 2025-07-31 23:43:19.071528
 
 Status: PASSED!
 Check: 5
 Test: The `pow` method and `**` operator should not be implemented.
 Reason: None
-Timestamp: 2025-07-31 23:41:55.654933
+Timestamp: 2025-07-31 23:43:19.071731
