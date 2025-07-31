@@ -18,4 +18,15 @@ def repToDecimal(rep, base):
         power -= 1
 
     return decimal_value
-Write your program here
+
+def main():
+    print("repToDecimal('10', 2)  =", repToDecimal("10", 2))   # 2
+    print("repToDecimal('10', 8)  =", repToDecimal("10", 8))   # 8
+    print("repToDecimal('10', 10) =", repToDecimal("10", 10))  # 10
+    print("repToDecimal('10', 16) =", repToDecimal("10", 16))  # 16
+    print("repToDecimal('1A', 16) =", repToDecimal("1A", 16))  # 26
+    print("repToDecimal('F', 16)  =", repToDecimal("F", 16))   # 15
+    print("repToDecimal('101', 2) =", repToDecimal("101", 2))  # 5
+
+if __name__ == "__main__":
+    main()
