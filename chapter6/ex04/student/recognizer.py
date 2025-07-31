@@ -79,5 +79,7 @@ def main():
         if isSentence(words):
             print("Ok, grammatically correct")
         else:
-            print("[incorrect]")  # Required by test suite
+            print("Not grammatically correct")
 
+if __name__ == "__main__":
+    main()
