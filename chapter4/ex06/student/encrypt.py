@@ -5,10 +5,9 @@ def encrypt_message(message):
 
     for char in message:
         ascii_val = ord(char) + 1                 # Step 1: Add 1 to ASCII value
-        shifted_val = (ascii_val << 1) & 0xFF     # Step 2: Shift left by 1 bit, keep 8 bits
-        binary_str = format(shifted_val, '08b')   # Step 3: Convert to 8-bit binary string
-        final_bits = binary_str[:7]               # Step 4: Take the first 7 bits only
-        encrypted_list.append(final_bits)
+        shifted_val = (ascii_val << 1) & 0b1111111  # Step 2: Shift left, keep lowest 7 bits
+        binary_str = format(shifted_val, '07b')     # Step 3: Format as 7-bit binary
+        encrypted_list.append(binary_str)
 
     return ' '.join(encrypted_list)
 
@@ -17,4 +16,5 @@ def encrypt_message(message):
 if __name__ == "__main__":
     user_input = input("Enter a message: ")
     print(encrypt_message(user_input))
+
 
