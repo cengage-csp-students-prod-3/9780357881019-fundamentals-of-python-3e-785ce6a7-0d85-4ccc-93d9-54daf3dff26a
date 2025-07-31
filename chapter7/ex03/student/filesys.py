@@ -22,4 +22,4 @@ def viewFile():
             contents = file.read()
             print(contents)
     except Exception as e:
-        print(f"Error opening file:
+        print(f"Error opening file: {e}")
