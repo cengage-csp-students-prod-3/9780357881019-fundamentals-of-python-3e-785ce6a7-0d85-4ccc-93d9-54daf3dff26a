@@ -1,10 +1,14 @@
-# Write your code here
-def selectionSort(lyst, reverse = False):
-
-def swap(lyst, x, y):
-    """Exchanges the elements at positions x and y."""
-    lyst[x], lyst[y] = lyst[y], lyst[x]
-
+def selectionSort(lst, reverse=False):
+    n = len(lst)
+    for i in range(n - 1):
+        # Assume the current position holds the min (or max if reverse=True)
+        idx_extreme = i
+        for j in range(i + 1, n):
+            if (not reverse and lst[j] < lst[idx_extreme]) or (reverse and lst[j] > lst[idx_extreme]):
+                idx_extreme = j
+        # Swap if a new min/max found
+        if idx_extreme != i:
+            lst[i], lst[idx_extreme] = lst[idx_extreme], lst[i]
 
 def main():
     """Tests with four lists."""
