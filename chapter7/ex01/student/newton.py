@@ -1,16 +1,15 @@
 TOLERANCE = 0.000001
 
 def newton(x, estimate=None):
-    """Recursively approximates the square root of x."""
+    """Recursively approximates the square root of x with controlled precision."""
     if estimate is None:
         estimate = x / 2  # initial guess
 
-    if abs(estimate ** 2 - x) <= TOLERANCE:
-        return estimate
+    improved = (estimate + x / estimate) / 2
+    if abs(improved ** 2 - x) <= TOLERANCE:
+        return improved
     else:
-        # improve the estimate and recurse
-        new_estimate = (estimate + x / estimate) / 2
-        return newton(x, new_estimate)
+        return newton(x, improved)
 
 
 def main():
@@ -28,3 +27,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
