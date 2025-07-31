@@ -1,15 +1,8 @@
-def newton(n, estimate=None, tolerance=1e-10):
-    if estimate is None:
-        estimate = n / 2  # Initial guess
-
-    # Calculate a better estimate
-    better_estimate = 0.5 * (estimate + n / estimate)
-
-    # Check if the difference is within the tolerance
-    if abs(better_estimate - estimate) < tolerance:
-        return better_estimate
-    else:
-        # Recursive call with the new estimate
-        return newton(n, better_estimate, tolerance)
+num = float(input("Enter a positive number or enter/return to quit: "))
+if num > 0:
+    estimate = newton(num)
+    print(f"The program's estimate is {estimate}")
+    import math
+    print(f"Python's estimate is      {math.sqrt(num)}")
 
 
