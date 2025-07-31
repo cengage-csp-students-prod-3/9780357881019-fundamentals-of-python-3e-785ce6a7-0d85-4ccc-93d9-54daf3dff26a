@@ -18,6 +18,15 @@ if __name__ == "__main__":
     print(encrypt_message(user_input))
 
 
+message = input("Enter a message: ")
+
+# Adjust ASCII and convert to 7-bit binary
+binary_values = [format(ord(char) - 1, '07b') for char in message]
+
+# Output the list as a string with binary values
+print([" ".join(binary_values)])
+
+
 
 
 
