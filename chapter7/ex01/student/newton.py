@@ -1,12 +1,12 @@
 def newton(n, estimate=None, tolerance=1e-7):
     if estimate is None:
-        estimate = n / 2 if n >= 2 else 1  # Better initial guess for small numbers
+        estimate = n / 2 if n >= 2 else 1
 
-    # Stop when estimate^2 is close enough to n
-    if abs(estimate * estimate - n) < tolerance:
-        return estimate
+    better_estimate = 0.5 * (estimate + n / estimate)
+
+    if abs(better_estimate - estimate) < tolerance:
+        return better_estimate
     else:
-        better_estimate = 0.5 * (estimate + n / estimate)
         return newton(n, better_estimate, tolerance)
 
 def main():
@@ -30,4 +30,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
