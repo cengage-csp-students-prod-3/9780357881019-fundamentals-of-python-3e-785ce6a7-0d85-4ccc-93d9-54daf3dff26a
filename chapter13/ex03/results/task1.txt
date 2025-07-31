@@ -3,28 +3,28 @@ Status: PASSED!
 Check: 1
 Test: The `expo(2,3)` function should return the correct result.
 Reason: None
-Timestamp: 2025-07-31 23:43:19.071256
+Timestamp: 2025-07-31 23:43:52.473610
 
 Status: PASSED!
 Check: 2
 Test: The `expo(5,0)` function should return the correct result.
 Reason: None
-Timestamp: 2025-07-31 23:43:19.071382
+Timestamp: 2025-07-31 23:43:52.473745
 
 Status: PASSED!
 Check: 3
 Test: The `expo(0,5)` function should return the correct result.
 Reason: None
-Timestamp: 2025-07-31 23:43:19.071461
+Timestamp: 2025-07-31 23:43:52.473833
 
 Status: PASSED!
 Check: 4
 Test: The `expo(0,0)` function should return the correct result.
 Reason: None
-Timestamp: 2025-07-31 23:43:19.071528
+Timestamp: 2025-07-31 23:43:52.473908
 
 Status: PASSED!
 Check: 5
 Test: The `pow` method and `**` operator should not be implemented.
 Reason: None
-Timestamp: 2025-07-31 23:43:19.071731
+Timestamp: 2025-07-31 23:43:52.474123
