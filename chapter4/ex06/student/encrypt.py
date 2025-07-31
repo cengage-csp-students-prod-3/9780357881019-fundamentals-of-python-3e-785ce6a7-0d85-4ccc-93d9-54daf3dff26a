@@ -1,19 +1,19 @@
-# encrypt.py
+# Decrypt Caesar cipher for printable ASCII characters (32–126)
 
-import sys
+coded_text = input("Enter the coded text: ")
+distance = int(input("Enter the distance value: "))
 
-# Use sys.stdin.read() to support non-interactive test environments
-message = sys.stdin.read().strip()
+decrypted = ""
 
-# Convert to binary (example: 7-bit ASCII format)
-binary_values = [format(ord(char), '07b') for char in message]
+for ch in coded_text:
+    ascii_val = ord(ch)
+    if 32 <= ascii_val <= 126:
+        shifted = (ascii_val - 32 - distance) % 95 + 32
+        decrypted += chr(shifted)
+    else:
+        decrypted += ch  # leave non-printable characters as-is
 
-# Format output as a list containing a space-separated string
-output = [" ".join(binary_values)]
-
-print(output)
-
-
+print(decrypted)
 
 
 
