@@ -4,17 +4,17 @@ Check: 1
 Test: 
 Reason: 
 Error : Exception - File text1.txt not found in the current directory.
-Timestamp: 2025-08-01 03:25:00.373245
+Timestamp: 2025-08-01 03:26:05.734390
 
 Status: FAILED!
 Check: 2
 Test: 
 Reason: 
 Error : Exception - File text2.txt not found in the current directory.
-Timestamp: 2025-08-01 03:25:00.373580
+Timestamp: 2025-08-01 03:26:05.734727
 
 Status: PASSED!
 Check: 3
 Test: The filesys.py program does not contain any hardcoded strings.
 Reason: None
-Timestamp: 2025-08-01 03:25:00.373923
+Timestamp: 2025-08-01 03:26:05.735020
