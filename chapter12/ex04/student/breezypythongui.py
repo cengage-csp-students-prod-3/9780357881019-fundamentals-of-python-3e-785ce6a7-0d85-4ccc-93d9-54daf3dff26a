@@ -1209,6 +1209,81 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+class Doctor:
+    def __init__(self, patient_name):
+        self.patient_name = patient_name
+        self.history = []
+
+    def add_input(self, input_text):
+        self.history.append(input_text)
+
+    def generate_reply(self, input_text):
+        self.add_input(input_text)
+        # Simple example reply that can reference history
+        if self.history:
+            return f"Hello {self.patient_name}, you said before: {self.history[-1]}"
+        else:
+            return f"Hello {self.patient_name}, how can I help you today?"
+import pickle
+import os
+from doctor import Doctor
+
+class DoctorClientHandler:
+    def __init__(self, connection):
+        self.connection = connection
+        self.doctor = None
+        self.patient_name = None
+
+    def handle_client(self):
+        # Step 1: Receive patient's name
+        self.patient_name = self.connection.recv(1024).decode('utf-8').strip()
+
+        filename = f"{self.patient_name}.dat"
+
+        # Step 2: Load Doctor object if file exists
+        if os.path.exists(filename):
+            with open(filename, 'rb') as f:
+                self.doctor = pickle.load(f)
+            print(f"Loaded history for patient {self.patient_name}")
+        else:
+            self.doctor = Doctor(self.patient_name)
+            print(f"Created new Doctor object for patient {self.patient_name}")
+
+        # Step 3: Main interaction loop
+        while True:
+            data = self.connection.recv(1024)
+            if not data:
+                break
+            user_input = data.decode('utf-8').strip()
+            reply = self.doctor.generate_reply(user_input)
+            self.connection.sendall(reply.encode('utf-8'))
+
+        # Step 4: On disconnect, save Doctor object back to file
+        with open(filename, 'wb') as f:
+            pickle.dump(self.doctor, f)
+        print(f"Saved history for patient {self.patient_name}")
+import socket
+
+def main():
+    host = 'localhost'
+    port = 12345
+    patient_name = input("Enter your name: ").strip()
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.connect((host, port))
+        # Send patient name first
+        sock.sendall(patient_name.encode('utf-8'))
+
+        while True:
+            user_input = input("You: ")
+            if user_input.lower() == 'quit':
+                break
+            sock.sendall(user_input.encode('utf-8'))
+            data = sock.recv(1024)
+            print("Doctor:", data.decode('utf-8'))
+
+if __name__ == "__main__":
+    main()
 
 
 
