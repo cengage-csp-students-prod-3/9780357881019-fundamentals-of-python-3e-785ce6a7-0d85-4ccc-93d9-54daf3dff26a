@@ -21,4 +21,26 @@ class TimeClientHandler(Thread):
                                "ascii"))
         self.client.close()
 
+import socket
+import sys
+
+def main():
+    host = 'localhost'
+    port = 12345
+
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((host, port))
+
+        data = sock.recv(1024)
+        print(data.decode())
+        sock.close()
+        print("Have a nice day!")
+
+    except ConnectionRefusedError:
+        print("Error connecting to the server")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
 
