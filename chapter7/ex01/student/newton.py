@@ -29,4 +29,33 @@ def main():
 
 if __name__ == "__main__":
     main()
+def newton(n, estimate=None, tolerance=1e-10):
+    if estimate is None:
+        estimate = n / 2  # initial guess
+
+    better_estimate = 0.5 * (estimate + n / estimate)
+
+    if abs(better_estimate - estimate) < tolerance:
+        return better_estimate
+    else:
+        return newton(n, better_estimate, tolerance)
+
+if __name__ == "__main__":
+    while True:
+        user_input = input("Enter a positive number or enter/return to quit: ")
+        if user_input == '':
+            break
+        try:
+            number = float(user_input)
+            if number <= 0:
+                print("Please enter a positive number.")
+                continue
+        except ValueError:
+            print("Invalid input. Please enter a positive number.")
+            continue
+
+        estimate = newton(number)
+        print(f"The program's estimate is {estimate}")
+        import math
+        print(f"Python's estimate is      {math.sqrt(number)}")
 
