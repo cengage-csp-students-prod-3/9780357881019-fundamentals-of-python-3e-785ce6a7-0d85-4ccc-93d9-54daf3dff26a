@@ -1209,3 +1209,19 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import tkinter as tk
+from tkinter import ttk
+import matplotlib.pyplot as plt
+plot_button = ttk.Button(root, text="Plot scores", command=plot_scores)
+plot_button.pack(pady=10)
+def plot_scores():
+    scores = student.scores  # Replace with your actual data source
+    positions = list(range(1, len(scores) + 1))
+
+    plt.figure(figsize=(8, 4))
+    plt.plot(positions, scores, marker='o', linestyle='-')
+    plt.title("Student Test Scores")
+    plt.xlabel("Position")
+    plt.ylabel("Score")
+    plt.grid(True)
+    plt.show()
