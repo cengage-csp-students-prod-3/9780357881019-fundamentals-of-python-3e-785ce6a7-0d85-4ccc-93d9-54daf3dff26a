@@ -1209,3 +1209,61 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+class TaxFormGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Tax Calculator")
+
+        # Income input
+        ttk.Label(root, text="Income:").grid(row=0, column=0, padx=5, pady=5, sticky='e')
+        self.income_var = tk.StringVar()
+        ttk.Entry(root, textvariable=self.income_var).grid(row=0, column=1, padx=5, pady=5)
+
+        # Deductions input
+        ttk.Label(root, text="Deductions:").grid(row=1, column=0, padx=5, pady=5, sticky='e')
+        self.deductions_var = tk.StringVar()
+        ttk.Entry(root, textvariable=self.deductions_var).grid(row=1, column=1, padx=5, pady=5)
+
+        # Calculate button
+        self.calc_button = ttk.Button(root, text="Calculate Tax", command=self.calculate_tax)
+        self.calc_button.grid(row=2, column=0, columnspan=2, pady=10)
+
+        # Tax result label
+        ttk.Label(root, text="Tax Owed:").grid(row=3, column=0, padx=5, pady=5, sticky='e')
+        self.tax_var = tk.StringVar()
+        ttk.Label(root, textvariable=self.tax_var).grid(row=3, column=1, padx=5, pady=5, sticky='w')
+
+    def calculate_tax(self):
+        try:
+            income = float(self.income_var.get())
+            deductions = float(self.deductions_var.get())
+
+            taxable_income = max(0, income - deductions)
+            tax = self.compute_tax(taxable_income)
+
+            self.tax_var.set(f"${tax:,.2f}")
+        except ValueError:
+            messagebox.showerror("Invalid input", "Please enter valid numeric values for income and deductions.")
+
+    def compute_tax(self, taxable_income):
+        # Example progressive tax brackets:
+        # 10% on income up to $10,000
+        # 20% on income from $10,001 to $50,000
+        # 30% on income above $50,000
+
+        tax = 0
+        if taxable_income <= 10000:
+            tax = taxable_income * 0.10
+        elif taxable_income <= 50000:
+            tax = 10000 * 0.10 + (taxable_income - 10000) * 0.20
+        else:
+            tax = 10000 * 0.10 + 40000 * 0.20 + (taxable_income - 50000) * 0.30
+        return tax
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = TaxFormGUI(root)
+    root.mainloop()
