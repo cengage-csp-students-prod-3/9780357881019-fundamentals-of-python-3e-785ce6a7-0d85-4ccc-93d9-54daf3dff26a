@@ -1209,6 +1209,89 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import socket
+import threading
+from atmclienthandler import ATMClientHandler
+from atm import Bank, ATM
+
+def main():
+    bank = Bank()  # Load accounts
+    atm = ATM(bank)
+
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(('localhost', 12345))
+    server_socket.listen()
+
+    print("ATM Server listening on port 12345...")
+
+    while True:
+        client_socket, addr = server_socket.accept()
+        print(f"Connected by {addr}")
+        handler = ATMClientHandler(client_socket, atm)
+        threading.Thread(target=handler.handle).start()
+
+if __name__ == '__main__':
+    main()
+import pickle
+
+class ATMClientHandler:
+    def __init__(self, client_socket, atm):
+        self.client_socket = client_socket
+        self.atm = atm
+
+    def handle(self):
+        try:
+            while True:
+                data = self.client_socket.recv(1024)
+                if not data:
+                    break
+                command = pickle.loads(data)
+
+                response = self.process_command(command)
+                self.client_socket.sendall(pickle.dumps(response))
+        finally:
+            self.client_socket.close()
+
+    def process_command(self, command):
+        # Example: command = {'action': 'deposit', 'account': 123, 'amount': 100}
+        action = command.get('action')
+
+        if action == 'deposit':
+            return self.atm.deposit(command['account'], command['amount'])
+        elif action == 'withdraw':
+            return self.atm.withdraw(command['account'], command['amount'])
+        elif action == 'balance':
+            return self.atm.get_balance(command['account'])
+        else:
+            return "Unknown command"
+import socket
+import pickle
+
+def main():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect(('localhost', 12345))
+
+    while True:
+        action = input("Enter action (deposit, withdraw, balance, quit): ")
+        if action == 'quit':
+            break
+
+        account = int(input("Account number: "))
+        amount = 0
+        if action in ('deposit', 'withdraw'):
+            amount = float(input("Amount: "))
+
+        command = {'action': action, 'account': account, 'amount': amount}
+        client_socket.sendall(pickle.dumps(command))
+
+        data = client_socket.recv(1024)
+        response = pickle.loads(data)
+        print("Response:", response)
+
+    client_socket.close()
+
+if __name__ == '__main__':
+    main()
 
 
 
