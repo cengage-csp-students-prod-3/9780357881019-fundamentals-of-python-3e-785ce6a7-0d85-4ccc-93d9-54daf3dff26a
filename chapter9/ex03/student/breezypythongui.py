@@ -1209,3 +1209,52 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+class TemperatureConverter:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Temperature Converter")
+
+        # Labels in the first row
+        ttk.Label(root, text="Fahrenheit").grid(row=0, column=0, padx=10, pady=5)
+        ttk.Label(root, text="Celsius").grid(row=0, column=1, padx=10, pady=5)
+
+        # Entry fields in the second row with initial values
+        self.fahrenheit_var = tk.StringVar(value="32.0")
+        self.celsius_var = tk.StringVar(value="0.0")
+
+        self.fahrenheit_entry = ttk.Entry(root, textvariable=self.fahrenheit_var, width=15)
+        self.fahrenheit_entry.grid(row=1, column=0, padx=10, pady=5)
+
+        self.celsius_entry = ttk.Entry(root, textvariable=self.celsius_var, width=15)
+        self.celsius_entry.grid(row=1, column=1, padx=10, pady=5)
+
+        # Buttons in the third row
+        self.to_celsius_button = ttk.Button(root, text=">>>>", command=self.f_to_c)
+        self.to_celsius_button.grid(row=2, column=0, pady=10)
+
+        self.to_fahrenheit_button = ttk.Button(root, text="<<<<", command=self.c_to_f)
+        self.to_fahrenheit_button.grid(row=2, column=1, pady=10)
+
+    def f_to_c(self):
+        try:
+            f = float(self.fahrenheit_var.get())
+            c = (f - 32) * 5 / 9
+            self.celsius_var.set(f"{c:.2f}")
+        except ValueError:
+            messagebox.showerror("Invalid input", "Please enter a valid numeric Fahrenheit value.")
+
+    def c_to_f(self):
+        try:
+            c = float(self.celsius_var.get())
+            f = (c * 9 / 5) + 32
+            self.fahrenheit_var.set(f"{f:.2f}")
+        except ValueError:
+            messagebox.showerror("Invalid input", "Please enter a valid numeric Celsius value.")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = TemperatureConverter(root)
+    root.mainloop()
