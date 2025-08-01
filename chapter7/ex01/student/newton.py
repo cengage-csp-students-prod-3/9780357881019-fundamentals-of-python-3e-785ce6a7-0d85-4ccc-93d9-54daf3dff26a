@@ -8,6 +8,12 @@ def newton(n, estimate=None, count=0, max_iterations=6):
     better_estimate = 0.5 * (estimate + n / estimate)
     return newton(n, better_estimate, count + 1, max_iterations)
 
+# Test cases:
+for num in [2, 4, 9]:
+    result = newton(num)
+    print(f"newton({num}) = {result:.16f}")
+
+
 if __name__ == "__main__":
     while True:
         user_input = input("Enter a positive number or enter/return to quit: ")
