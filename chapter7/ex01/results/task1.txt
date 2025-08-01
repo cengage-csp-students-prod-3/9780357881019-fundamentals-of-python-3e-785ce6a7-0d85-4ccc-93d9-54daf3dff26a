@@ -4,24 +4,24 @@ Check: 1
 Test: The `newton` method returns the square root of 2.
 Reason: Expected 1.4142135623746899
 Error : AssertionError - Assertion failed: Expected 1.4142135623746899
-Timestamp: 2025-08-01 03:01:44.177525
+Timestamp: 2025-08-01 03:03:20.744596
 
 Status: FAILED!
 Check: 2
 Test: The `newton` method returns the square root of 4.
 Reason: Expected 2.0000000929222947
 Error : AssertionError - Assertion failed: Expected 2.0000000929222947
-Timestamp: 2025-08-01 03:01:44.177702
+Timestamp: 2025-08-01 03:03:20.744740
 
 Status: FAILED!
 Check: 3
 Test: The `newton` method returns the square root of 9.
 Reason: Expected  3.000000001396984
 Error : AssertionError - Assertion failed: Expected  3.000000001396984
-Timestamp: 2025-08-01 03:01:44.177792
+Timestamp: 2025-08-01 03:03:20.744836
 
 Status: PASSED!
 Check: 4
 Test: The `newton` function uses recursive patterns.
 Reason: None
-Timestamp: 2025-08-01 03:01:44.178030
+Timestamp: 2025-08-01 03:03:20.745025
