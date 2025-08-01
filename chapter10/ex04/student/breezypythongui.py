@@ -1209,3 +1209,47 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import tkinter as tk
+from tkinter import messagebox
+
+class ATMApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("ATM Login")
+
+        self.failure_count = 0
+
+        # Example login button
+        self.login_button = tk.Button(root, text="Login", command=self.handle_login)
+        self.login_button.pack()
+
+        # Example username and pin entries (replace with your actual UI)
+        self.username_entry = tk.Entry(root)
+        self.username_entry.pack()
+        self.pin_entry = tk.Entry(root, show='*')
+        self.pin_entry.pack()
+
+    def handle_login(self):
+        username = self.username_entry.get()
+        pin = self.pin_entry.get()
+
+        # Here, replace this with your real authentication check
+        if self.check_credentials(username, pin):
+            messagebox.showinfo("Login Success", "Welcome!")
+            self.failure_count = 0  # reset counter on success
+        else:
+            self.failure_count += 1
+            if self.failure_count >= 3:
+                messagebox.showwarning("Security Alert", "Three unsuccessful login attempts. The police will be called.")
+                self.login_button.config(state=tk.DISABLED)
+            else:
+                messagebox.showerror("Login Failed", f"Login failed. Attempts left: {3 - self.failure_count}")
+
+    def check_credentials(self, username, pin):
+        # Dummy check, replace with real verification
+        return username == "Ken" and pin == "1000"
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ATMApp(root)
+    root.mainloop()
