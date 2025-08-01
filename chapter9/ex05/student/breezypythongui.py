@@ -1209,3 +1209,80 @@ class EasyPanel(Tkinter.Frame):
                  rowspan = 1, columnspan = 1, background = "white"):
         """Creates and returns a panel."""
         return EasyPanel(self, row, column, rowspan, columnspan, background)
+import tkinter as tk
+from tkinter import ttk
+
+class GuessGameGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Guess the Number")
+
+        # State variables
+        self.low = 1
+        self.high = 100
+        self.guess = None
+
+        # Label to display computer's guess
+        ttk.Label(root, text="Computer's Guess:").grid(row=0, column=0, padx=10, pady=10)
+        self.guess_var = tk.StringVar(value="")
+        self.guess_label = ttk.Label(root, textvariable=self.guess_var, font=("Helvetica", 16))
+        self.guess_label.grid(row=0, column=1, padx=10, pady=10)
+
+        # Buttons for user feedback
+        self.btn_too_small = ttk.Button(root, text="Too small", command=self.too_small)
+        self.btn_too_small.grid(row=1, column=0, padx=10, pady=5)
+
+        self.btn_too_large = ttk.Button(root, text="Too large", command=self.too_large)
+        self.btn_too_large.grid(row=1, column=1, padx=10, pady=5)
+
+        self.btn_correct = ttk.Button(root, text="Correct", command=self.correct)
+        self.btn_correct.grid(row=1, column=2, padx=10, pady=5)
+
+        # New Game button
+        self.btn_new_game = ttk.Button(root, text="New game", command=self.new_game)
+        self.btn_new_game.grid(row=2, column=0, columnspan=3, pady=10)
+
+        self.new_game()  # Start a new game on launch
+
+    def new_game(self):
+        self.low = 1
+        self.high = 100
+        self.guess = None
+        self.guess_var.set("")
+        self.enable_guess_buttons()
+        self.make_guess()
+
+    def make_guess(self):
+        if self.low > self.high:
+            self.guess_var.set("No valid guesses left!")
+            self.disable_guess_buttons()
+            return
+        self.guess = (self.low + self.high) // 2
+        self.guess_var.set(str(self.guess))
+
+    def too_small(self):
+        self.low = self.guess + 1
+        self.make_guess()
+
+    def too_large(self):
+        self.high = self.guess - 1
+        self.make_guess()
+
+    def correct(self):
+        self.guess_var.set(f"Correct! The number is {self.guess}.")
+        self.disable_guess_buttons()
+
+    def disable_guess_buttons(self):
+        self.btn_too_small.config(state=tk.DISABLED)
+        self.btn_too_large.config(state=tk.DISABLED)
+        self.btn_correct.config(state=tk.DISABLED)
+
+    def enable_guess_buttons(self):
+        self.btn_too_small.config(state=tk.NORMAL)
+        self.btn_too_large.config(state=tk.NORMAL)
+        self.btn_correct.config(state=tk.NORMAL)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    game = GuessGameGUI(root)
+    root.mainloop()
