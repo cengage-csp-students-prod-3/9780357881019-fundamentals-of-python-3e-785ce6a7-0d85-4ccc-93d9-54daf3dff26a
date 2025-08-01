@@ -96,3 +96,48 @@ class StudentView(EasyFrame):
         and highest score from the user, randomizes the model's scores,
         and updates the view."""
         return
+    import statistics
+
+class Student:
+    def __init__(self):
+        self.scores = []
+
+    def add_score(self, score):
+        self.scores.append(score)
+
+    def get_mean(self):
+        return statistics.mean(self.scores)
+
+    def get_median(self):
+        return statistics.median(self.scores)
+
+    def get_mode(self):
+        # Mode might raise StatisticsError if no unique mode, handle it
+        try:
+            return statistics.mode(self.scores)
+        except statistics.StatisticsError:
+            # Return None or handle ties differently if needed
+            return None
+
+    def get_stddev(self):
+        # Population stddev is statistics.pstdev, sample stddev is statistics.stdev
+        return statistics.stdev(self.scores)
+from student import Student
+
+def main():
+    student = Student()
+
+    # Example scores
+    scores = [82, 76, 77, 93, 97, 97, 90, 98, 83, 88]
+
+    for i, score in enumerate(scores, start=1):
+        student.add_score(score)
+        print(f"{i:4d} {score:8d}")
+
+    print(f"\nMean: {student.get_mean():.1f}")
+    print(f"Median: {student.get_median():.1f}")
+    print(f"Mode: {student.get_mode()}")
+    print(f"Standard deviation: {student.get_stddev()}")
+
+if __name__ == "__main__":
+    main()
